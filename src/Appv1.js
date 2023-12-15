@@ -72,12 +72,12 @@ const average = (arr) =>
             const res = await fetch(`http://www.omdbapi.com/?apikey=${KEY}&s=${query}`);
 
             if(!res.ok)
-             throw new Error("Something went Wrong with Fetching Movies");
+             throw new Error("Something went Wrong☹️ with Fetching Movies");
 
               const data = await res.json();
 
               if(data.response === "false")
-              throw new Error("Movie not Found");
+              throw new Error("⛔Movie not Found");
 
               setMovies(data.Search)
               console.log(data.Search)
