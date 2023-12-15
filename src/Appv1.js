@@ -53,7 +53,7 @@ const average = (arr) =>
   //const tempquery = "titanic"
 
   export default function App() {
-    const [query, setQuery] = useState('');
+    const [query, setQuery] = useState('Interstellar');
     const [movies, setMovies] = useState([]);
     const [watched, setWatched] = useState([]);
     const [loading , setLoading] = useState(false);
@@ -164,7 +164,7 @@ function Logo(){
 
   function NumResult({movies}){
     return(<p className="num-results">
-          Found <strong>{movies.length}</strong> results
+          Found <strong>{movies?.length}</strong> results
         </p>)
   }
   function MainPage({children}){
