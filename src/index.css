@@ -202,6 +202,7 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
+  color: black;
 }
 
 .btn-delete:hover {
@@ -285,11 +286,21 @@ body {
   border-radius: 0.9rem;
   padding: 2rem 2.4rem;
   margin-bottom: 0.8rem;
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
+  font-weight: 800;
+  display:inline-block;
+  /* flex-direction: column; */
   gap: 2.4rem;
+  .stars{
+    font-size: 18px;
+    align-items: end;
+  }
+  .ratingnum{
+    display:inline-block;
+    margin-left: 5px;
+
+  }
 }
+
 
 .btn-add {
   background-color: var(--color-primary);
@@ -301,6 +312,9 @@ body {
   font-weight: bold;
   cursor: pointer;
   transition: all 0.3s;
+  width: 70%;
+  margin-left: 38px;
+  margin-top: 10px;
 }
 
 .btn-add:hover {

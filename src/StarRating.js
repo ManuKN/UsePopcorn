@@ -1,7 +1,7 @@
 // Star component
 import { useState } from "react";
 
-function Star({ id, filled, hovered, onClick, onHover ,data }) {
+function Star({ id, filled, hovered, onClick, onHover ,data}) {
    const starStyle = {
       display:"inline",
       alignItem:"center",
@@ -25,12 +25,12 @@ function Star({ id, filled, hovered, onClick, onHover ,data }) {
  }
  
  // Rating component
- function Rating(message =[]) {
+ function Rating(message =[] ,onSetRating ) {
    const [rating, setRating] = useState(0);
    const handleClick = (id) => {
      setRating(id);
    };
- 
+
    const handleHover = (id, isHovered) => {
      setRating(id);
    };
@@ -47,16 +47,10 @@ function Star({ id, filled, hovered, onClick, onHover ,data }) {
        />
      );
    });
- 
-   const styles = {
-      color:"bule",
-      width:"1500px",
-      height:"40px"
-   }
    return (
-     <div>
+     <div className="stars">
        {stars}
-       <p style={styles}>Your Rating:{rating}</p> 
+       <p className="ratingnum">{rating}</p> 
        {/* {message.length===rating ? message[rating-1] : message[0]} */}
        {/* <p>The Movie is{[message]}</p> */}
      </div>
@@ -64,10 +58,10 @@ function Star({ id, filled, hovered, onClick, onHover ,data }) {
  }
  
 
- function printData(Items){
-   return(
-   <span>{Items}</span>
-   )
- }
+//  function printData(Items){
+//    return(
+//    <span>{Items}</span>
+//    )
+//  }
  export default Rating;
  
