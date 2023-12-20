@@ -14,22 +14,9 @@ const average = (arr) =>
     const [error , setError] = useState("");
     const [selectedID , setSelectedID] = useState("");
 
-    // const [watched, setWatched] = useState(function(){
-    //   const storedValue = localStorage.getItem('watched');
-    //    return JSON.parse(storedValue);
-    // });
-
-    //this is Custom hook below to store and and fetch data in LocalStorage
+   
 const [watched , setWatched] = useLocalStorage([] , "watched");
 
-
-//another custom hook the
-
-
-    // useEffect(function(){
-    //     console.log("Content Executing")
-    // },[query])
-    //let cinema = {query}
 function handleSelectedID(id){
   setSelectedID((selectedID) => (selectedID === id ? null : id));
 }
@@ -40,15 +27,12 @@ function handlebackbutton(){
 
 function handleAddWatched(movie){
     setWatched((watched) =>[...watched ,movie])
-    // localStorage.setItem('watchedMovies' , JSON.stringify([...watched , movie]))
+   
 }
 function handleDeleteMovies(id){
   setWatched((watched)=>watched.filter(movie => movie.imdbID !== id));
 }
 
-// useEffect(function(){
-//   localStorage.setItem('watched' , JSON.stringify(watched))
-// },[watched])
 
     useEffect( function (){
       
@@ -110,7 +94,6 @@ function handleDeleteMovies(id){
          
        <Box  movies={movies}>
 
-        {/* {loading ? <loader /> : <MovieList movies={movies} />} */}
         {loading &&  <Loader />}
         {!loading && !error && <MovieList movies={movies} onSelectedID={handleSelectedID}/>}
         {error && <ErrorMessage message={error}/>}
@@ -124,8 +107,6 @@ function handleDeleteMovies(id){
       </> }
       
        </Box>
-
-       {/* <WatchedBox/> */}
 
        </MainPage>
         
@@ -159,10 +140,6 @@ function Logo(){
 }
 
   function Input({query , setQuery}){
-  //  useEffect(function(){
-  //   const el = document.querySelector('.search')
-  //       el.focus();
-  //  },[])
 
   const inputEl = useRef(null)
 
@@ -173,18 +150,6 @@ function Logo(){
         setQuery('')
     
   })
-
-  // useEffect(function(){
-  //   function Callback(e){
-  //  if(document.activeElement === inputEl.current)
-  // return;
-  //     if(e.code === 'Enter')
-  //     inputEl.current.focus();
-  //     setQuery('')
-  //   }
-  //   document.addEventListener('keydown' ,Callback )
-  //   //return ()=> document.addEventListener('Keydown' , Callback)
-  // },[setQuery] )
 
     return(<input
           className="search"
@@ -222,28 +187,6 @@ function Logo(){
     {isOpen1 && [children]}
   </div>)
   }
-
-  // function WatchedBox(){
-  //   const [watched, setWatched] = useState(tempWatchedData);
-  // const [isOpen2, setIsOpen2] = useState(true);
- 
-  //   return(
-  //     <div className="box">
-  //         <button
-  //           className="btn-toggle"
-  //           onClick={() => setIsOpen2((open) => !open)}
-  //         >
-  //           {isOpen2 ? "–" : "+"}
-  //         </button>
-  //         {isOpen2 && (
-  //           <>
-              
-  //           </>
-  //         )}
-  //       </div>
-  //   )
-
-  // }
 
   function MovieList({movies , onSelectedID }){
     
@@ -318,23 +261,6 @@ const newWatchedMovie = {
   onback();
 }
 
-// useEffect(function (){
-
-//   function Callback(e){
-//     if(e.code === "Escape")
-//     {
-//       onback();
-//     }
-//   }
-//   document.addEventListener("keydown" ,Callback );
-
-// return function(){
-//  document.removeEventListener("keydown" , Callback);
-// }
-
-// },[onback])
-
-//Another Example for react Custom Hook for the repalacment of Above code
 useKey('Escape',onback);
 
 useEffect(function(){
@@ -343,7 +269,6 @@ useEffect(function(){
 
   return function(){
     document.title = "UsePopCorn🍿"
-    // console.log(`Clean Up effect for Movie ${title}`)
   }
 } , [title])
 
